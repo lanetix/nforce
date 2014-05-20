@@ -725,6 +725,10 @@ Connection.prototype._apiRequest = function(opts, callback) {
   if(opts.oauth) {
     ropts.headers['Authorization'] = 'Bearer ' + opts.oauth.access_token;
   }
+  
+  if (opts.encoding) {
+    ropts.encoding = opts.encoding;
+  }
 
   if(opts.method === 'GET' && this.gzip === true) {
     ropts.headers['Accept-Encoding'] = 'gzip';
